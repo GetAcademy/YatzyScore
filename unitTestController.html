@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Test Suite</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.14.0.css">
+</head>
+
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.14.0.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/controller.js"></script>
+
+    <script>
+        var dice;
+        var scores;
+
+        QUnit.test('yatzy par i 5', function (assert) {
+            dice = [1,2,3,4,4];
+            scores = [];
+            placeScoreOnePair();
+            assert.equal(scores[14], 8);
+        });
+
+
+    </script>
+</body>
+
+</html>

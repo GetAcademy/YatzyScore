@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Test Suite</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.14.0.css">
+</head>
+
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.14.0.js"></script>
+    <script src="js/common.js"></script>
+
+    <script>
+        QUnit.test('yatzy par i 5', function (assert) {
+            var score = calcPairScore([1, 2, 5, 2, 5]);
+            assert.equal(score, 10);
+        });
+
+        QUnit.test('yatzy par i 4', function (assert) {
+            var score = calcPairScore([1, 2, 4, 2, 4]);
+            assert.equal(score, 8);
+        });
+
+        QUnit.test('frekvenstabell 1', function (assert) {
+            var frequencies = createFrequencyTable([1, 2, 4, 2, 4]);
+            //           terning-verdier:     ⚀ ⚁  ⚂  ⚃  ⚄ ⚅ 
+            assert.deepEqual(frequencies, [0, 1, 2, 0, 2, 0, 0]);
+        });
+
+        QUnit.test('frekvenstabell 2', function (assert) {
+            var frequencies = createFrequencyTable([1]);
+            //           terning-verdier:     ⚀ ⚁  ⚂  ⚃  ⚄ ⚅ 
+            assert.deepEqual(frequencies, [0, 1, 0, 0, 0, 0, 0]);
+        });
+
+        QUnit.test('frekvenstabell 3', function (assert) {
+            var frequencies = createFrequencyTable([2]);
+            //           terning-verdier:     ⚀ ⚁  ⚂  ⚃  ⚄ ⚅ 
+            assert.deepEqual(frequencies, [0, 0, 1, 0, 0, 0, 0]);
+        });
+    </script>
+</body>
+
+</html>
